@@ -26,6 +26,6 @@ if ENV['COVERAGE']
   end
 end
 
-require File.join(File.dirname(__FILE__), '../lib/fog/exoscale.rb')
+require File.join(File.dirname(__FILE__), '../lib/fog/vmfusion.rb')
 
 Coveralls.wear! if ENV['COVERAGE']
