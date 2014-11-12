@@ -1,7 +1,14 @@
-require "fog/vmfusion/version"
+require 'fog/core'
+require 'fog/vmfusion/version'
 
 module Fog
   module Vmfusion
-    # Your code goes here...
+    extend Fog::Provider
+
+    service(:compute, 'Compute')
+  end
+
+  module Compute
+    autoload :Vmfusion, 'fog/compute/vmfusion'
   end
 end
