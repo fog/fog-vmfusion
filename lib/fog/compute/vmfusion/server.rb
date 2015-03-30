@@ -1,4 +1,4 @@
-require 'fog/compute/models/server'
+require "fog/compute/models/server"
 
 module Fog
   module Compute
@@ -16,7 +16,7 @@ module Fog
         # There is currently no documented model of creating VMs from scratch
         # sans Fusion's wizard.
         def save
-          raise Fog::Errors::Error.new('Creating a new vm is not yet supported')
+          raise Fog::Errors::Error.new("Creating a new vm is not yet supported")
         end
 
         # Fussion doesn't have the concept of templates so one just clones
@@ -173,7 +173,7 @@ module Fog
           macs(@raw[:fission])
         end
 
-        # Sets up a conveinent way to SSH into a Fusion VM using credentials
+        # Sets up a convenient way to SSH into a Fusion VM using credentials
         # stored in your .fog file.
 
         # Simply spawn an SSH session.
@@ -211,7 +211,7 @@ module Fog
           Timeout::timeout(360) do
             begin
               Timeout::timeout(8) do
-                Fog::SSH.new(ssh_ip_address, username, credentials.merge(:timeout => 4)).run('pwd')
+                Fog::SSH.new(ssh_ip_address, username, credentials.merge(:timeout => 4)).run("pwd")
               end
             rescue Errno::ECONNREFUSED
               sleep(2)
@@ -226,7 +226,7 @@ module Fog
         private
         def ip(fission)
           first_int = fission.network_info.data.keys.first
-          fission.network_info.data[first_int]['ip_address']
+          fission.network_info.data[first_int]["ip_address"]
         end
 
         def macs(fission)
