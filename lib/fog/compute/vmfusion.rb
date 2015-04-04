@@ -1,10 +1,10 @@
 module Fog
   module Compute
     class Vmfusion < Fog::Service
-      autoload :Server, 'fog/compute/vmfusion/server'
-      autoload :Servers, 'fog/compute/vmfusion/servers'
+      autoload :Server, File.expand_path("../vmfusion/server", __FILE__)
+      autoload :Servers, File.expand_path("../vmfusion/servers", __FILE__)
 
-      model_path 'fog/compute/vmfusion'
+      model_path "fog/compute/vmfusion"
 
       model       :server
       collection  :servers
@@ -17,9 +17,9 @@ module Fog
 
       class Real
         def initialize(_options = {})
-          require 'fission'
+          require "fission"
         rescue LoadError => e
-          retry if require('rubygems')
+          retry if require("rubygems")
           raise e.message
         end
       end
