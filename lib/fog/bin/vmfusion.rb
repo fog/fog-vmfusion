@@ -1,4 +1,4 @@
-module Vmfusion # deviates from other bin stuff to accomodate gem
+module Vmfusion # deviates from other bin stuff to accommodate gem
   class << self
     def class_for(key)
       case key
